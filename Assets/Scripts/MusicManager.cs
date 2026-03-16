@@ -40,6 +40,12 @@ public class MusicManager : MonoBehaviour
         if (playOnStart) Play();
     }
 
+    void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
+
     public void Play()
     {
         if (!musicSource) return;

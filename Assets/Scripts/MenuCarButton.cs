@@ -22,6 +22,14 @@ public class MenuCarButton : MonoBehaviour
 
     static bool clicked;
 
+    void OnEnable()
+    {
+        clicked = false;
+
+        if (actionText)
+            actionText.text = defaultText;
+    }
+
     void OnMouseEnter()
     {
         if (clicked) return;

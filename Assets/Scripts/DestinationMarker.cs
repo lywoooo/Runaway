@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DestinationMarkerSpawner : MonoBehaviour
+public class DestinationMarker : MonoBehaviour
 {
     [SerializeField] private CityBuilder city;
     [SerializeField] private GameObject markerPrefab;

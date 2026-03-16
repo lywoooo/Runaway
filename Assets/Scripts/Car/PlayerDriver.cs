@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CarController))]
 public class PlayerDriver : MonoBehaviour
 {
     private CarController car;
@@ -10,6 +9,8 @@ public class PlayerDriver : MonoBehaviour
 
     void Update()
     {
+        if (!car) return;
+
         car.throttleInput = Input.GetAxis("Vertical");
         car.steerInput = Input.GetAxis("Horizontal");
         car.brakeInput = Input.GetKey(KeyCode.Space);

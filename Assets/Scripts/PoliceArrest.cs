@@ -30,7 +30,7 @@ public class PoliceArrest : MonoBehaviour
     private float arrest01;
     private float contactBonusAcc;
 
-    // NEW: cached reference so we don’t Find every time
+    // Cache the manager once so arrest resolution does not scan every frame.
     private GameOverManager gameOverManager;
 
     public float Arrest01 => arrest01;
@@ -41,8 +41,7 @@ public class PoliceArrest : MonoBehaviour
         if (!rb) rb = GetComponent<Rigidbody>();
         hits = new Collider[Mathf.Max(8, maxPoliceToCheck)];
 
-        // NEW: find once
-        gameOverManager = FindObjectOfType<GameOverManager>();
+        gameOverManager = FindFirstObjectByType<GameOverManager>();
     }
 
     private void Update()
@@ -122,7 +121,7 @@ public class PoliceArrest : MonoBehaviour
 
     private void OnArrested()
     {
-        Debug.Log("ARRESTED — GAME OVER");
+        Debug.Log("ARRESTED - GAME OVER");
 
         if (gameOverManager != null)
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DestinationWinSystem : MonoBehaviour
+public class WinSystem : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private CityBuilder city;
@@ -28,6 +28,12 @@ public class DestinationWinSystem : MonoBehaviour
     {
         if (won) return;
         if (!city || !city.ready) return;
+        if (!player)
+        {
+            var candidate = GameObject.FindGameObjectWithTag("Player");
+            if (candidate) player = candidate.transform;
+        }
+
         if (!player) return;
 
         Vector3 dest = city.DestWorld;

@@ -48,8 +48,11 @@ public class PlayerSpawner : MonoBehaviour
         Transform camTarget = playerInstance.transform.Find("CameraTarget");
         if (!camTarget) camTarget = playerInstance.transform;
 
-        playerCam.Follow = camTarget;
-        playerCam.LookAt = camTarget;
+        if (playerCam)
+        {
+            playerCam.Follow = camTarget;
+            playerCam.LookAt = camTarget;
+        }
 
         if (policeManager)
             policeManager.SetPlayer(playerInstance.transform);

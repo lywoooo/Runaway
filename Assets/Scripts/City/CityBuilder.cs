@@ -61,7 +61,10 @@ public class CityBuilder : MonoBehaviour
     }
 
     private Vector3 CellToWorld(Vector2Int c, float y)
-        => settings.origin + new Vector3(c.x * settings.cellSize, y, c.y * settings.cellSize);
+    {
+        float cellSize = Mathf.Max(0.01f, settings.cellSize);
+        return settings.origin + new Vector3(c.x * cellSize, y, c.y * cellSize);
+    }
 
     private void BuildRoads()
     {
@@ -494,7 +497,7 @@ public class CityBuilder : MonoBehaviour
 
     public Vector2Int WorldToCell(Vector3 world)
     {
-        float cs = settings.cellSize;
+        float cs = Mathf.Max(0.01f, settings.cellSize);
         Vector3 o = settings.origin;
 
         // Convert world x/z to cell coords
@@ -515,7 +518,12 @@ public class CityBuilder : MonoBehaviour
 
         for (int i = t.childCount - 1; i >= 0; i--)
         {
-            UnityEngine.Object.DestroyImmediate(t.GetChild(i).gameObject);
+            var child = t.GetChild(i).gameObject;
+
+            if (Application.isPlaying)
+                Destroy(child);
+            else
+                DestroyImmediate(child);
         }
     }
 }

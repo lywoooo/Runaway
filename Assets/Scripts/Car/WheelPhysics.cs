@@ -47,6 +47,8 @@ public class WheelPhysics : MonoBehaviour
         lastSpringLen = restLen;
 
         drivable = LayerMask.GetMask("Drivable", "Floor");
+        if (drivable == 0)
+            drivable = Physics.DefaultRaycastLayers;
     }
 
     void FixedUpdate()
