@@ -91,23 +91,3 @@ If you want to iterate quickly, these are the most useful files:
 2. Open `Assets/Scenes/Start.unity` for the intended flow, or `Assets/Scenes/City.unity` for direct gameplay work.
 3. Confirm the required prefabs and scene references are assigned in the inspector.
 4. Press Play.
-
-## Notes
-
-- The city generation is deterministic when `randomSeed` is disabled.
-- Police spawning depends on `CityBuilder.ready`, so runtime order matters.
-- Cinemachine camera hookup happens in `PlayerSpawner`, not in the city generator.
-- The scripts are structured so the procedural systems can be tuned without editing scene logic every pass.
-
-## Recent Cleanup
-
-The current script pass fixed a few obvious runtime hazards:
-
-- corrected two Unity script/class name mismatches
-- restored win detection after delayed player spawn
-- reset menu click state when re-entering the menu
-- added camera null safety during player spawn
-- added a wheel-raycast fallback when expected drivable layers are missing
-- avoided `DestroyImmediate` for runtime child cleanup
-
-This is a good base for the next pass: balancing car feel, improving police behavior under heavy collisions, and tightening the city art pass.
