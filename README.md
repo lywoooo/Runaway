@@ -2,11 +2,15 @@
 
 Runaway is a compact arcade driving prototype built in Unity. You spawn into a procedurally generated city, thread through tight road networks, avoid police pressure, and reach the destination before the arrest meter fills.
 
+---
+
 <img width="1920" height="1243" alt="Screenshot 2026-04-06 at 4 15 15 PM" src="https://github.com/user-attachments/assets/936c9cef-a3b7-4c5f-ad27-d9211c41771f" />
 
 <img width="1395" height="940" alt="Screenshot 2026-04-06 at 4 18 11 PM" src="https://github.com/user-attachments/assets/65393564-0f24-4f49-849f-90b2219dfbee" />
 
 <img width="1227" height="907" alt="Screenshot 2026-04-06 at 4 20 10 PM" src="https://github.com/user-attachments/assets/495ca000-d47e-454a-b9a6-adf74e02361b" />
+
+---
 
 The project is small enough to understand quickly, but it already has a clear gameplay loop:
 
@@ -14,7 +18,7 @@ The project is small enough to understand quickly, but it already has a clear ga
 - Spawn the player, destination, and police once the city is ready.
 - Let the car physics, AI pursuit, arrest logic, and win/lose UI handle the round.
 
-
+---
 
 ## Project Highlights
 
